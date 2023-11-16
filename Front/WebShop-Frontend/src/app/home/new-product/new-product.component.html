@@ -1,0 +1,52 @@
+
+<mat-horizontal-stepper [linear]="true">
+    <mat-step label="Step 1: Basic Information">
+        <form [formGroup]="basicInfoForm">
+             <mat-form-field class="form-field">
+                <input matInput formControlName="name" required>
+                <mat-label>Name</mat-label>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+                <textarea matInput formControlName="description" required></textarea>
+                <mat-label>Description</mat-label>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput formControlName="price" required>
+                <mat-label>Price</mat-label>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput formControlName="quantity" required>
+                <mat-label>Quantity</mat-label>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput formControlName="location" required>
+                <mat-label>Location</mat-label>
+            </mat-form-field>
+            <mat-checkbox formControlName="isNew" class="mat-checkbox">Is New Product</mat-checkbox>
+            <mat-form-field class="form-field">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category" [(ngModel)]="selectedCategory" (ngModelChange)="onCategorySelected()">
+                    <mat-option *ngFor="let category of filteredCategories" [value]="category.id">
+                        {{ category.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <input type="file" (change)="onFileSelected($event)" multiple/>
+            </div>
+            <button mat-button matStepperNext>Next</button>
+        </form>
+    </mat-step>
+    <mat-step label="Step 2: Attributes">
+        <form [formGroup]="attributesForm" (ngSubmit)="newProduct()">
+            <ng-container *ngFor="let attribute of attributes">
+                <mat-form-field class="form-field">
+                    <input matInput [formControlName]="attribute.name" required>
+                    <mat-label>{{ attribute.name }}</mat-label>
+                </mat-form-field>
+            </ng-container>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button [disabled]="!attributesForm!.valid">Submit</button>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>

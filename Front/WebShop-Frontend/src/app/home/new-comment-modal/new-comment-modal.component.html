@@ -1,0 +1,14 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+        <h2>Comment</h2>
+        <form [formGroup]="commentForm">
+            <mat-form-field class="message-field">
+                <textarea matInput placeholder="Enter your comment" rows="6" formControlName="comment" ></textarea>
+            </mat-form-field>
+            <div class="buttons">
+                <button mat-button class="send-button" (click)="addProduct()">Send</button>
+                <button mat-button class="cancel-button" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

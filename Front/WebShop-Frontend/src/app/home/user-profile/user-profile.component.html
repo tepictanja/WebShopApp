@@ -1,0 +1,51 @@
+<div class="user-profile">
+    <mat-toolbar color="primary" class="header-toolbar">
+        <mat-toolbar-row>
+            <!-- Leva strana - Slika profila i dugme "Update" -->
+            <div class="left-content">
+                <div class="profile-image">
+                    <img class="profile-picture" [src]="userImageUrl" alt="Profile photo">
+                </div>
+                <button mat-button class="update-button" (click)="editProfile()">
+                    <mat-icon>edit</mat-icon>
+                    Edit profile
+                </button>
+            </div>
+
+            <!-- Desna strana - Navigacija -->
+            <div class="nav-item" (click)="loadActiveProducts()">
+                <mat-icon>visibility</mat-icon>
+                <span>My active products</span>
+            </div>
+
+            <div class="nav-item" (click)="loadSoldProducts()">
+                <mat-icon>remove_circle</mat-icon>
+                <span>My sold products</span>
+            </div>
+            
+            <div class="nav-item" (click)="loadPurchasedProducts()" >
+                <mat-icon>shopping_cart</mat-icon>
+                <span>Purchased products</span>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="cards-container">
+        <ng-container *ngFor="let product of pagedProducts">
+            <app-product-card [product]="product" [imageURL]="product.images[0].imageUri"
+                [delete]="true" (modalClosed)="onModalClosed()"></app-product-card>
+        </ng-container>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="pagination-controls">
+        <button mat-icon-button (click)="loadPreviousPage()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <span>{{currentPage}}</span>
+        <button mat-icon-button (click)="loadNextPage()">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+</div>

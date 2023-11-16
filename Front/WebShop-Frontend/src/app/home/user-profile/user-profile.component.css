@@ -1,0 +1,102 @@
+.header-toolbar {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+}
+
+.header-toolbar .mat-toolbar-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #007f7b;
+}
+
+.nav-item:hover {
+    background-color: #b8e3e2;
+    border-radius: 4px;
+}
+
+.nav-item mat-icon {
+    margin-right: 8px;
+    color: #007f7b;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Ostali stilovi ako su potrebni */
+}
+
+.update-button {
+    background-color: transparent;
+    border: 1px solid #007f7b;
+    background-color: #007f7b;
+
+    border-radius: 20px;
+}
+
+.update-button:hover {
+    background-color: #05b7b1;
+    color: white;
+}
+
+.cards-container {
+    display: grid;
+    margin-top: 7px;
+    margin-left: 110px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 300px;
+}
+
+.footer {
+    background-color: lightgrey;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+}
+
+.mat-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+span {
+    margin: 0 10px;
+}

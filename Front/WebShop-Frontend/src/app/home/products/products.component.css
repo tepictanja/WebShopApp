@@ -1,0 +1,141 @@
+.mat-list-item,
+.mat-expansion-panel-header {
+
+    color: #007f7b;
+}
+
+.mat-sidenav {
+    width: 300px;
+    min-width: 300px;
+}
+
+.mat-sidenav-content {
+    padding-left: 300px;
+}
+
+.categories-tree {
+    background-color: transparent;
+}
+
+.categories-tree-invisible {
+    display: none;
+}
+
+.mat-nested-tree-node div[role=group] {
+    padding-left: 10px;
+}
+
+.mat-tree-node:hover {
+    color: #007f7b;
+}
+
+.leafNode {
+    padding-left: 48px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    font-size: 16px;
+    padding: 8px 16px;
+    background-color: #007f7b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #03d3cc;
+}
+
+.container {
+    display: flex;
+    display: flex;
+    overflow: hidden;
+}
+
+.tree-container {
+    flex: 1;
+    width: 200px;
+    margin-right: 20px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.cards-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-rows: 300px;
+}
+
+.footer {
+    background-color: lightgrey;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+}
+
+.mat-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+span {
+    margin: 0 10px;
+}
+
+.form-field {
+    width: 200px;
+    margin-top: 5px;
+    height: 60px;
+    font-size: 10px;
+}
+
+.header {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header .mat-toolbar-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.search-box {
+    flex: 1;
+    margin: 0 20px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.content {
+    display: flex;
+    overflow-y: auto;
+}

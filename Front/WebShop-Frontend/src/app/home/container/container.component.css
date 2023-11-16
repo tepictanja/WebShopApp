@@ -1,0 +1,42 @@
+.mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007f7b;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    margin-right: 10px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.search-icon {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.mat-form-field {
+    margin: 0;
+}
+
+.cart-button {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.signup-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}

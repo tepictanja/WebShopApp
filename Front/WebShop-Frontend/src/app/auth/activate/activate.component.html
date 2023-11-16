@@ -1,0 +1,17 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="activate-container">
+    <div class="activate-card">
+        <div class="activate-header">Activate account</div>
+        <form class="activate-form" [formGroup]="activateForm" (ngSubmit)="activate()">
+            <div class="input-container">
+                <input type="text" matInput placeholder="Username*" formControlName="username" required>
+                <mat-icon class="material-icons">person</mat-icon>
+            </div>
+            <div class="input-container">
+                <input type="text" matInput placeholder="PIN*" formControlName="pin" required>
+                <mat-icon class="material-icons">pin</mat-icon>
+            </div>
+            <button type="submit" class="activate-button">Activate account</button>
+        </form>
+    </div>
+</div>

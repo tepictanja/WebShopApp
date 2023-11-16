@@ -1,0 +1,20 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">Login</div>
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="input-container">
+                <input type="text" matInput placeholder="Username*" formControlName="username" required>
+                <mat-icon class="material-icons">person</mat-icon>
+            </div>
+            <div class="input-container">
+                <input type="password" matInput placeholder="Password*" formControlName="password" required>
+                <mat-icon class="material-icons">lock</mat-icon>
+            </div>
+                <button type="submit"class="login-button">Login</button>
+        </form>
+        <div class="signup-link">
+            Don't have an account? <a routerLink="/auth/signup">SignUp</a>
+        </div>
+    </div>
+</div>

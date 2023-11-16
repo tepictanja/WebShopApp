@@ -1,0 +1,20 @@
+<div class="product-card" *ngIf="product">
+    <div>
+        <div (click)="navigateToProductDetails(product.id)">
+            <img mat-card-image src="{{imageURL}}" alt="No photo" >
+            <h3>{{product.name}}</h3>
+            <p>{{product.price}} $</p>
+        </div>
+        <div *ngIf="delete">
+         <button mat-mini-fab color="warn" (click)="deleteProduct(product.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="buy && isAuthenticated()">
+            <button mat-mini-fab color="warn" (click)="buyProduct(product.id)">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+

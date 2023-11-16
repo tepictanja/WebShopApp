@@ -1,0 +1,53 @@
+{
+  "rules": [
+    {
+      "methods": [],
+      "pattern": "/messages",
+      "roles": [
+        "ACTIVE", "REQUESTED", "INACTIVE"
+      ]
+    },
+    {
+      "methods": [],
+      "pattern": "/products/**",
+      "roles": [
+        "ACTIVE", "REQUESTED", "INACTIVE"
+      ]
+    },
+    {
+      "methods": ["POST"],
+      "pattern": "/comments",
+      "roles": [
+        "ACTIVE"
+      ]
+    },
+    {
+      "methods": ["POST"],
+      "pattern": "/orders/**",
+      "roles": [
+        "ACTIVE"
+      ]
+    },
+    {
+      "methods": ["GET"],
+      "pattern": "/categories/**",
+      "roles": [
+        "ACTIVE", "REQUESTED", "INACTIVE"
+      ]
+    },
+    {
+      "methods": ["PUT"],
+      "pattern": "/products/sold",
+      "roles": [
+        "ACTIVE"
+      ]
+    },
+    {
+      "methods": [],
+      "pattern": "/users/**",
+      "roles": [
+        "ACTIVE", "REQUESTED", "INACTIVE"
+      ]
+    }
+  ]
+}

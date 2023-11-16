@@ -1,0 +1,24 @@
+<mat-dialog-content class="dialog-content">
+    <div class="form-control">
+        <mat-form-field>
+            <input matInput placeholder="Address" [(ngModel)]="address"> <!-- Polje za unos adrese -->
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Payment Method</mat-label>
+            <mat-select [(ngModel)]="selectedPaymentMethod">
+                <mat-option value="cash">Cash on Delivery</mat-option>
+                <mat-option value="card">Credit Card</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="form-control" *ngIf="selectedPaymentMethod === 'card'">
+        <mat-form-field>
+            <input matInput placeholder="Credit Card Number" [(ngModel)]="creditCardNumber">
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button color="warn" (click)="buy()">Buy</button>
+</mat-dialog-actions>
+

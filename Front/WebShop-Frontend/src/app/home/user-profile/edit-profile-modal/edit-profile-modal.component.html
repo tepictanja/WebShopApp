@@ -1,0 +1,49 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+        <form [formGroup]="editProfileForm">
+            <mat-form-field class="mat-form-field">
+                <input matInput formControlName="firstName" required>
+                <mat-label>First name</mat-label>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <input matInput formControlName="lastName" required>
+                <mat-label>Last name</mat-label>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <input matInput type="password" formControlName="currentPassword" required>
+                    <mat-label>Current password</mat-label>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <input matInput type="password" formControlName="newPassword" required>
+                <mat-label>New password</mat-label>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <input matInput type="email" formControlName="email" required>
+                <mat-label>Email</mat-label>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <input matInput type="tel" formControlName="phoneNumber" required>
+                <mat-label>Phone number</mat-label>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+                <input matInput formControlName="city" required>
+                <mat-label>City</mat-label>
+            </mat-form-field>
+
+            <div>
+                <input type="file" (change)="onFileSelected($event)" multiple />
+            </div>
+
+            <div class="buttons">
+                <button mat-button class="update-button" (click)="updateUserProfile()">Update</button>
+                <button mat-button class="cancel-button" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

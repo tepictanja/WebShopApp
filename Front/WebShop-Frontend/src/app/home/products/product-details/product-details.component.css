@@ -1,0 +1,79 @@
+.product-image {
+    width: 500px;
+    height: 500px;
+    max-width: 100%;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.details-container {
+    display: flex;
+}
+
+.image-container {
+    padding: 10px;
+    width: 500px;
+}
+
+.info-container {
+    flex: 2;
+    padding: 10px;
+    margin-left: 50px;
+    margin-top: 7px;
+}
+
+.seller-container {
+    margin-right: 400px;
+    margin-top: 7px;
+}
+
+.comment-container{
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.comment-line {
+    border-top: 1px solid lightgrey;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.comments-page {
+    position: relative;
+}
+
+.add-comment-button {
+    position: fixed;
+    top: 120px;
+    right: 8px;
+}
+
+.button-container{
+    margin-left: 200px;
+}
+
+.slide-button{
+    background-color: white;
+    color: #007f7b;
+    border: none;
+    cursor: pointer;
+    font-size: 26px;
+    padding: 8px 16px;
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Ostali stilovi ako su potrebni */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-info p{
+    margin-left: 10px;
+}

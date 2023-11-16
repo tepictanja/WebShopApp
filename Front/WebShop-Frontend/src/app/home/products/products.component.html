@@ -1,0 +1,92 @@
+<mat-toolbar class="header">
+    <mat-toolbar-row>
+        <div>
+            <button mat-icon-button (click)="applyFilters()">
+                <mat-icon>filter_list</mat-icon>
+            </button>
+            <button mat-icon-button (click)="resetFilters()">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </div>
+        <div class="search-box">
+            <mat-form-field class="form-field">
+                <mat-label>Search...</mat-label>
+                <input matInput [(ngModel)]="searchName" (keydown.enter)="searchProductByName()">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+    <div class="content">
+        <div class="tree-container">
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                <!-- This is the tree node template for a category that is leaf -->
+                <mat-tree-node *matTreeNodeDef="let category" matTreeNodeToggle class="leafNode" (click)="filterByCategory(category)">
+                {{category.name}}
+                </mat-tree-node>
+            
+                <!-- This is the tree node template for a node with subcategories -->
+                <mat-nested-tree-node *matTreeNodeDef="let category; when: hasChild" (click)="filterByCategory(category)">
+                    <div class="mat-tree-node">
+                        <button mat-icon-button matTreeNodeToggle>
+                            <mat-icon class="mat-icon-rtl-mirror">
+                                {{treeControl.isExpanded(category) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button>
+                        {{category.name}}
+                    </div>
+                    <div [class.categories-tree-invisible]="!treeControl.isExpanded(category)" role="group">
+                        <ng-container matTreeNodeOutlet></ng-container>
+                    </div>
+                </mat-nested-tree-node>
+            </mat-tree>
+            <div>
+                <form [formGroup]="attributesForm">
+                    <mat-form-field class="form-field">
+                        <input matInput formControlName="location" >
+                        <mat-label>Location</mat-label>
+                    </mat-form-field>
+                    <mat-form-field class="form-field">
+                        <input matInput type="number" formControlName="priceFrom" >
+                        <mat-label>PriceFrom</mat-label>
+                    </mat-form-field>
+                    <mat-form-field class="form-field">
+                        <input matInput type="number" formControlName="priceTo" >
+                        <mat-label>PriceTo</mat-label>
+                    </mat-form-field>
+             </form>
+                <div *ngIf="selectedCategory">
+                    <form [formGroup]="specificAttributesForm"> 
+                        <ng-container *ngFor="let attribute of attributes">
+                            <mat-form-field class="form-field">
+                                <input matInput [formControlName]="attribute.name">
+                             <mat-label>{{ attribute.name }}</mat-label>
+                            </mat-form-field>
+                        </ng-container>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        <ng-container *ngFor="let product of pagedProducts">
+            <app-product-card [product]="product" [imageURL]="product.images[0].imageUri" [buy]="true" (modalClosed)="onModalClosed()"></app-product-card>
+        </ng-container>
+    </div>
+</div>
+
+
+<div class="footer">
+    <div class="pagination-controls">
+        <button mat-icon-button (click)="loadPreviousPage()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <span>{{currentPage}}</span>
+        <button mat-icon-button (click)="loadNextPage()">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+</div>

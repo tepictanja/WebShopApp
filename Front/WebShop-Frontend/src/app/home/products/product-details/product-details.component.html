@@ -1,0 +1,61 @@
+<mat-tab-group>
+    <!-- Tab za detalje -->
+    <mat-tab label="Details">
+        <!-- Sadržaj taba za detalje -->
+        <div *ngIf="product">
+            <div class="details-container">
+                <div class="image-container">
+                    <img class="product-image" [src]="currentImage.imageUri" alt="Product Image">
+                    <div class="button-container">
+                        <button class="slide-button" (click)="showPreviousImage()">&lt;&lt;</button>
+                        <button class="slide-button" (click)="showNextImage()">&gt;&gt;</button>
+                    </div>
+                </div>
+
+                <div class="info-container">
+                    <!-- Prikaz informacija o proizvodu -->
+                    <h2>{{product.name}}</h2>
+                    <p>Price: {{product.price}} $</p>
+                    <p>Description: {{product.description}}</p>
+                    <p>Location: {{product.location}}</p>
+                    <h3>Attributes</h3>
+                    <div *ngFor="let attribute of product.productAttributes">
+                        <p>{{ attribute.attribute.name }}: {{ attribute.value }}</p>
+                    </div>
+                </div>
+                <div class="seller-container">
+                    <!-- Informacije o prodavcu -->
+                    <h3>Seller Information</h3>
+                    <p>First name: {{product.saller.firstName}}</p>
+                    <p>Last name: {{product.saller.lastName}}</p>
+                    <p>Last name: {{product.saller.username}}</p>
+                    <p>Email: {{product.saller.email}}</p>
+                    <p>Phone number: {{product.saller.phoneNumber}}</p>
+                </div>
+
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Comments">
+        <!-- Sadržaj taba za komentare -->
+        <div *ngIf="product" class="comments-page">
+            <div *ngFor="let comment of product.comments" class="comment-container">
+                
+                    <div class="user-info">
+                        <img [src]="comment.user.avatarUri" class="profile-picture" alt="User Profile Picture">
+                        <p><strong>{{ comment.user.username }}</strong></p>
+                    </div>
+                    <p>{{ comment.content }}</p>
+                
+                <div class="comment-line"></div>
+            </div>
+            <div *ngIf="isAuthenticated()">
+                <button mat-fab class="add-comment-button" aria-label="Add Comment" (click)="openNewCommentModal(product.id)">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+
+
